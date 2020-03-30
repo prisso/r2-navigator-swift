@@ -18,12 +18,12 @@ public class UserSettings {
     
     // WARNING: String values must not contain any single or double quotes characters, otherwise it breaks the streamer's injection.
     private let appearanceValues = ["readium-black-coffee-on", "readium-vienna-mocha-on", "readium-earl-grey-on", "readium-cookie-dough-on", "readium-orange-sherbert-on", "readium-mint-chip-on"]
-    private let fontFamilyValues = ["Original", "Helvetica Neue", "Iowan Old Style", "Athelas", "Seravek", "OpenDyslexic"]
+    private let fontFamilyValues = ["ZaridRegular", "BelyRegular", "AdapterRegular", "OutputRegular", "KonsoleRegular"]
     private let textAlignmentValues = ["justify", "start"]
     private let columnCountValues = ["auto", "1", "2"]
     
     private var fontSize: Float = 100
-    private var fontOverride = false
+    private var fontOverride = true
     private var fontFamily = 0
     private var appearance = 0
     private var verticalScroll = false
@@ -56,15 +56,6 @@ public class UserSettings {
             fontFamily = userDefaults.integer(forKey: ReadiumCSSName.fontFamily.rawValue)
         } else {
             fontFamily = 0
-        }
-        
-        // Font override
-        if isKeyPresentInUserDefaults(key: ReadiumCSSName.fontOverride) {
-            fontOverride = userDefaults.bool(forKey: ReadiumCSSName.fontOverride.rawValue)
-        } else if fontFamily != 0 {
-            fontOverride = true
-        } else {
-            fontOverride = false
         }
         
         // Appearance
