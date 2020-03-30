@@ -103,7 +103,8 @@ class EPUBSpreadView: UIView, Loggable {
         
         UIMenuController.shared.menuItems = [
             UIMenuItem(
-                title: R2NavigatorLocalizedString("EditingAction.share"),
+                // title: R2NavigatorLocalizedString("EditingAction.share"),
+                title: "Share",
                 action: #selector(shareSelection)
             )
         ]
