@@ -26,7 +26,7 @@ public class UserSettings {
     private var fontOverride = true
     private var fontFamily = 0
     private var appearance = 0
-    private var verticalScroll = false
+    private var verticalScroll = true
     
     private var publisherDefaults = false
     private var textAlignment = 0
@@ -41,7 +41,6 @@ public class UserSettings {
     private let userDefaults = UserDefaults.standard
 
     internal init() {
-        
         /// Load settings from UserDefaults
         
         // Font size
@@ -69,7 +68,7 @@ public class UserSettings {
         if isKeyPresentInUserDefaults(key: ReadiumCSSName.scroll) {
             verticalScroll = userDefaults.bool(forKey: ReadiumCSSName.scroll.rawValue)
         } else {
-            verticalScroll = false
+            verticalScroll = true
         }
         
         // Publisher default system
