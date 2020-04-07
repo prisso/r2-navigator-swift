@@ -99,6 +99,12 @@ class EPUBSpreadView: UIView, Loggable {
         }
         registerJSMessages()
 
+        NotificationCenter.default.post(
+            name: EPUB.Notifications.injectScripts,
+            object: self,
+            userInfo: ["webView": webView]
+        )
+        
         NotificationCenter.default.addObserver(self, selector: #selector(voiceOverStatusDidChange), name: Notification.Name(UIAccessibilityVoiceOverStatusChanged), object: nil)
         
         UIMenuController.shared.menuItems = [
@@ -427,6 +433,12 @@ extension EPUBSpreadView: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Do not remove: overriden in subclasses.
+        
+        NotificationCenter.default.post(
+            name: EPUB.Notifications.webViewLoaded,
+            object: self,
+            userInfo: ["webView": webView]
+        )
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

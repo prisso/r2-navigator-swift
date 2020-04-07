@@ -45,6 +45,13 @@ public extension EPUBNavigatorDelegate {
 
 public typealias EPUBContentInsets = (top: CGFloat, bottom: CGFloat)
 
+public struct EPUB {
+    public struct Notifications {
+        public static let injectScripts = NSNotification.Name(rawValue: "readium.serialbox.notification.injectscripts")
+        public static let webViewLoaded = NSNotification.Name(rawValue: "readium.serialbox.notification.webviewloaded")
+    }
+}
+
 open class EPUBNavigatorViewController: UIViewController, VisualNavigator, Loggable {
     
     public struct Configuration {
