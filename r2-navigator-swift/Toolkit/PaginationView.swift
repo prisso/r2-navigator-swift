@@ -20,7 +20,7 @@ protocol PageView {
     var positionCount: Int { get }
 }
 
-protocol PaginationViewDelegate: class {
+protocol PaginationViewDelegate: AnyObject {
     /// Creates the page view for the page at given index and initial location.
     func paginationView(_ paginationView: PaginationView, pageViewAtIndex index: Int, location: Locator) -> (UIView & PageView)?
     

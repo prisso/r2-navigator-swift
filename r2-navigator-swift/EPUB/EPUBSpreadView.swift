@@ -13,7 +13,7 @@ import WebKit
 import R2Shared
 
 
-protocol EPUBSpreadViewDelegate: class {
+protocol EPUBSpreadViewDelegate: AnyObject {
     
     /// Called before the spread view animates its content (eg. page change in reflowable).
     func spreadViewWillAnimate(_ spreadView: EPUBSpreadView)
