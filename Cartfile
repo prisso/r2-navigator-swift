@@ -1,1 +1,1 @@
-github "readium/r2-shared-swift" == 1.4.3
+github "serialboxpub/r2-shared-swift" "feature/v1_4_3_customized"
